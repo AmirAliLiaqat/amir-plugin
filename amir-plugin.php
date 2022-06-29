@@ -37,11 +37,20 @@ if( ! class_exists( 'AmirPlugin' ) ) {
 
         function register() {
             add_action( 'admin_enqueue_scripts', array($this, 'enqueue') );
+            add_action( 'admin_menu', array($this, 'add_admin_pages') );
         }
 
         function enqueue() {
             wp_enqueue_style( 'amir-plugin-style', plugins_url( '/assets/css/style.css', __FILE__ ) );
             wp_enqueue_script( 'amir-plugin-script', plugins_url( '/assets/js/script.js', __FILE__ ) );
+        }
+        
+        function add_admin_pages() {
+            add_menu_page( 'Amir Plugin', 'Amir Plugin', 'manage_options', 'amir_plugin', array($this, 'admin_index'), 'dashicons-store', 110 );
+        }
+
+        function admin_index() {
+            require_once plugin_dir_path( __FILE__ ) . 'template/admin.php';
         }
 
     }
