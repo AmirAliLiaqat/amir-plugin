@@ -34,6 +34,15 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 if( ! class_exists( 'AmirPlugin' ) ) {
     class AmirPlugin {
+
+        function register() {
+            add_action( 'admin_enqueue_scripts', array($this, 'enqueue') );
+        }
+
+        function enqueue() {
+            wp_enqueue_style( 'amir-plugin-style', plugins_url( '/assets/css/style.css', __FILE__ ) );
+            wp_enqueue_script( 'amir-plugin-script', plugins_url( '/assets/js/script.js', __FILE__ ) );
+        }
         
     }
 }
