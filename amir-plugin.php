@@ -32,6 +32,10 @@ along with Amir Plugin. If not, see https://amir.bytebunch.com/license.
 
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
+if( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
+    require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+}
+
 if( ! class_exists( 'AmirPlugin' ) ) {
     class AmirPlugin {
         
@@ -40,7 +44,7 @@ if( ! class_exists( 'AmirPlugin' ) ) {
         function __construct() {
             $this->plugin = plugin_basename( __FILE__ );
         }
-        
+
         function register() {
             add_action( 'admin_enqueue_scripts', array($this, 'enqueue') );
             add_action( 'admin_menu', array($this, 'add_admin_pages') );
