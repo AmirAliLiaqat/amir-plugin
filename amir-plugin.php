@@ -34,7 +34,13 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 if( ! class_exists( 'AmirPlugin' ) ) {
     class AmirPlugin {
+        
+        public $plugin;
 
+        function __construct() {
+            $this->plugin = plugin_basename( __FILE__ );
+        }
+        
         function register() {
             add_action( 'admin_enqueue_scripts', array($this, 'enqueue') );
             add_action( 'admin_menu', array($this, 'add_admin_pages') );
