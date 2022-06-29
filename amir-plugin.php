@@ -36,6 +36,9 @@ if( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
     require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
+// use Inc\Activate;
+// use Inc\Deactivate;
+
 if( ! class_exists( 'AmirPlugin' ) ) {
     class AmirPlugin {
         
@@ -75,12 +78,12 @@ if( ! class_exists( 'AmirPlugin' ) ) {
     $amirPlugin->register(); 
      
     // activation
-    require_once plugin_dir_path( __FILE__ ) . 'inc/amir-plugin-activate.php';
-    register_activation_hook( __FILE__, array( 'AmirPluginActivate', 'activate' ) );
+    require_once plugin_dir_path( __FILE__ ) . 'inc/Activate.php';
+    register_activation_hook( __FILE__, array( 'Activate', 'activate' ) );
 
     // deactivation
-    require_once plugin_dir_path( __FILE__ ) . 'inc/amir-plugin-deactivate.php';
-    register_deactivation_hook( __FILE__, array( 'AmirPluginDeactivate', 'deactivate' ) );
+    // require_once plugin_dir_path( __FILE__ ) . 'inc/Deactivate.php';
+    // register_deactivation_hook( __FILE__, array( 'Deactivate', 'deactivate' ) );
 }
 
 ?>
