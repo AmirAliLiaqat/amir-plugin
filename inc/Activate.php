@@ -3,7 +3,7 @@
  * @package AmirPlugin
  */
 
-// namespace Inc; 
+namespace Inc; 
 
 class Activate {
 
