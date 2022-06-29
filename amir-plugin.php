@@ -43,8 +43,18 @@ if( ! class_exists( 'AmirPlugin' ) ) {
             wp_enqueue_style( 'amir-plugin-style', plugins_url( '/assets/css/style.css', __FILE__ ) );
             wp_enqueue_script( 'amir-plugin-script', plugins_url( '/assets/js/script.js', __FILE__ ) );
         }
-        
+
     }
+    $amirPlugin = new AmirPlugin();
+    $amirPlugin->register(); 
+     
+    // activation
+    require_once plugin_dir_path( __FILE__ ) . 'inc/amir-plugin-activate.php';
+    register_activation_hook( __FILE__, array( 'AmirPluginActivate', 'activate' ) );
+
+    // deactivation
+    require_once plugin_dir_path( __FILE__ ) . 'inc/amir-plugin-deactivate.php';
+    register_deactivation_hook( __FILE__, array( 'AmirPluginDeactivate', 'deactivate' ) );
 }
 
 ?>
