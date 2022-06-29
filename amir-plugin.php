@@ -28,4 +28,14 @@ GNU General Public License for more details.
  
 You should have received a copy of the GNU General Public License
 along with Amir Plugin. If not, see https://amir.bytebunch.com/license.
-*
+*/
+
+defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
+
+if( ! class_exists( 'AmirPlugin' ) ) {
+    class AmirPlugin {
+        
+    }
+}
+
+?>
