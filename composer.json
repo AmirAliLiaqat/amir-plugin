@@ -1,6 +1,6 @@
 {
     "name": "home/amir-plugin",
-    "description": "That plugin which is used for multi purposes like(Custom Forms, Custom Post Types, Live Chat, Word and Character Count etc).",
+    "description": "Awesome starter plugin example",
     "type": "project",
     "license": "GPL",
     "authors": [
